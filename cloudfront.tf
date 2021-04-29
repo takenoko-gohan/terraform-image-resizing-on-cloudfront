@@ -46,7 +46,7 @@ resource "aws_cloudfront_distribution" "nodejs" {
 
     lambda_function_association {
       event_type = "origin-response"
-      lambda_arn = aws_lambda_function.nodejs_response.qualified_arn
+      lambda_arn = aws_lambda_function.nodejs.qualified_arn
     }
   }
 
@@ -109,7 +109,7 @@ resource "aws_cloudfront_distribution" "wasm" {
 
     lambda_function_association {
       event_type = "origin-response"
-      lambda_arn = aws_lambda_function.wasm_response.qualified_arn
+      lambda_arn = aws_lambda_function.wasm.qualified_arn
     }
   }
 

@@ -1,5 +1,5 @@
-resource "aws_iam_role" "lambda_response" {
-  name = "image-resize-test-response"
+resource "aws_iam_role" "lambda" {
+  name = "${var.prefix}-image-resize"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -18,14 +18,14 @@ resource "aws_iam_role" "lambda_response" {
   })
 }
 
-resource "aws_iam_role_policy_attachment" "lambda_response_01" {
-  role       = aws_iam_role.lambda_response.name
+resource "aws_iam_role_policy_attachment" "lambda_01" {
+  role       = aws_iam_role.lambda.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
-resource "aws_iam_role_policy" "lambda_response_02" {
+resource "aws_iam_role_policy" "lambda_02" {
   name = "s3-policy"
-  role = aws_iam_role.lambda_response.name
+  role = aws_iam_role.lambda.name
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [

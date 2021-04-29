@@ -1,3 +1,3 @@
-variable "name" {
+variable "prefix" {
   type = string
 }

@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "image" {
-  bucket        = "${var.name}-test-images"
+  bucket        = "${var.prefix}-test-images"
   acl           = "private"
   force_destroy = true // 今回は検証環境なので強制削除できるようにします
 }
